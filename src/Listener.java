@@ -35,7 +35,7 @@ public class Listener implements ActionListener{
 			System.exit(0);
 		}
 		else if (e.getSource()==GenInfo.getButton(2)){
-			System.exit(0);
+			GenInfo.showVideo("Test", "https://www.youtube.com/watch?v=zbg9MbQS5xM");
 		}
 		else if (e.getSource()==GenInfo.getButton(3)){
 			System.exit(0);

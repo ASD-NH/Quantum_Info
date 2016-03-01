@@ -1,9 +1,15 @@
+import java.awt.BorderLayout;
+import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
+import java.awt.GridLayout;
 import java.io.File;
 import java.io.FileInputStream;
+import java.net.URL;
+
+import javax.swing.GroupLayout.Alignment;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -12,8 +18,11 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.WindowConstants;
+import javax.media.*;
 
 import org.apache.commons.io.FileUtils;
+
+import com.sun.media.MediaPlayer;
 
 public class GenInfo {
 	private static JButton[] buttons;
@@ -33,29 +42,46 @@ public class GenInfo {
 		generatePanel();
 	}
 	public static JPanel getPanel(){
-		return topPanel;
+		return botPanel;
 	}
 	public static JButton getButton(int n){
 		return buttons[n];
 	}
 	
-	public static void showVideo(String name){
+	public static void showVideo(String name,String u){
 		JFrame videoFrame = new JFrame(name);
 		JPanel videoPanel= new JPanel();
 		videoFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-		videoFrame.getContentPane().add(videoPanel);
-		videoFrame.pack();
-		videoFrame.setVisible(true);
+		
+		try {
+			URL url = new URL(u);
+			Player player= Manager.createRealizedPlayer(url);
+			Component video = player.getVisualComponent();
+			Component controls= player.getControlPanelComponent();
+			videoPanel.add(video);
+			videoPanel.add(controls);
+			videoFrame.getContentPane().add(videoPanel);
+			videoFrame.pack();
+			videoFrame.setVisible(true);
+		}
+		catch(Exception e){
+			e.printStackTrace();
+			JOptionPane.showMessageDialog(Quantum.getFrame(), "Error loading Video");
+		}
+		
+
 	}
 	
 	public static void generatePanel(){
 		botPanel = new JPanel(new GridBagLayout());
-		topPanel = new JPanel(new GridBagLayout());
+		topPanel = new JPanel();
 		GridBagConstraints c = new GridBagConstraints();
 		
 		intro = new JTextArea(10,100);
 		intro.setFont(new Font("SERIF",Font.PLAIN,12));
 		intro.setEditable(false);
+		intro.setBackground(Quantum.getFrame().getBackground());
+		
 		buttons = new JButton[7];
 		
 		back = new JButton("back");
@@ -87,24 +113,21 @@ public class GenInfo {
 			e.printStackTrace();
 			JOptionPane.showMessageDialog(Quantum.getFrame(), "Error Loading Text.");
 		}
-		
 		c.gridx=0;
 		c.gridy=0;
-		c.anchor=GridBagConstraints.PAGE_START;
-	
 		botPanel.add(intro,c);
+		c.gridy++;
+		botPanel.add(buttons[2],c);
 		
-		scroll = new JScrollPane(botPanel);
-		scroll.setPreferredSize(new Dimension(1000,1000));
-		scroll.getVerticalScrollBar().setUnitIncrement(16);
-		
-		c.gridheight=10;
-		c.gridwidth=10;
-		topPanel.add(scroll,c);
-		
-//		topPanel.add(buttons[1],c);
+//		scroll = new JScrollPane(botPanel);
+//		scroll.setPreferredSize(new Dimension(1000,1000));
+//		scroll.getVerticalScrollBar().setUnitIncrement(16);
 //		
-//		topPanel.add(buttons[0],c);
+//		topPanel.add(scroll,BorderLayout.PAGE_START);
+		
+//		topPanel.add(buttons[1]);
+//		
+//		topPanel.add(buttons[0]);
 //	
 			
 	}
