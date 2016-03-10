@@ -1,0 +1,2 @@
+Another important property of quantum computers is quantum entanglement. Entanglement is the property of two or more particles interacting in such a way that they cannot be described independently, and must be written as a system. This means that the state of each particle is connected to the other and cannot be described individually. This property allows for computations that are impossible on classical computers, such as solving Deutsch’s problem or applying Shor’s algorithm.
+

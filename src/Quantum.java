@@ -31,7 +31,7 @@ public class Quantum {
 	public static void main(String[] args){
 		
 		mainFrame = new JFrame("mainFrame");
-		mainFrame.setPreferredSize(new Dimension(1000,1000));
+		mainFrame.setPreferredSize(new Dimension(800,450));
 		try{
 			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
 		}

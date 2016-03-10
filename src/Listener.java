@@ -35,7 +35,7 @@ public class Listener implements ActionListener{
 			System.exit(0);
 		}
 		else if (e.getSource()==GenInfo.getButton(2)){
-			GenInfo.showVideo("Test", "https://www.youtube.com/watch?v=zbg9MbQS5xM");
+			GenInfo.showVideo("Test", "video/vid1.mp4");
 		}
 		else if (e.getSource()==GenInfo.getButton(3)){
 			System.exit(0);
@@ -44,10 +44,10 @@ public class Listener implements ActionListener{
 			System.exit(0);
 		}
 		else if (e.getSource()==GenInfo.getButton(5)){
-			System.exit(0);
+			Utils.browseWeb("https://docs.oracle.com/javase/tutorial/uiswing/misc/desktop.html");
 		}
 		else if (e.getSource()==GenInfo.getButton(6)){
-			System.exit(0);
+			Utils.browseWeb("https://xkcd.com");
 		}
 		//Speed Buttons
 		

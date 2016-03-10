@@ -1,0 +1,2 @@
+However, in quantum computing it can be solved with only one computation because of the power of entanglement. This is done by entangling a system and performing a series of quantum operations on the system which works on the whole system because of the entanglement, then the end state of the system is examined and that state will reveal f(0)=f(1) without ever having to calculate f(0) or f(1).
+
