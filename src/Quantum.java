@@ -4,7 +4,20 @@ import javax.swing.*;
 public class Quantum {
 	private static JFrame mainFrame;
 	private static MainMenu menu;
+	private static final int MAXCOUNT = 10000;
+	public static double timePerOpp; //in nanoseconds per operation
 	
+	public static void calculateTimePerOpp(){
+	    double timeInit = System.nanoTime();
+	    for (int i=0;i < MAXCOUNT;i++){
+	        if((Math.random())==1){
+	            
+	        }
+	    }
+	    double timeFinal = System.nanoTime();
+	    System.out.println(timeFinal-timeInit);
+	    timePerOpp = (timeFinal-timeInit)/MAXCOUNT;
+	}
 	public static void showPanel(JPanel panel, JFrame frame){
 		frame.getContentPane().removeAll();
 		frame.getContentPane().add(panel);
@@ -24,13 +37,14 @@ public class Quantum {
 	public static void init(){
 		GenInfo gen = new GenInfo();
 //		QuantumToClassic QtoC = new QuantumToClassic();
-//		SpeedCompare speed = new SpeedCompare();
+		SpeedCompare speed = new SpeedCompare();
 		menu= new MainMenu();
+		calculateTimePerOpp();
 		
 	}
 	public static void main(String[] args){
 		
-		mainFrame = new JFrame("mainFrame");
+		mainFrame = new JFrame("Quauntum Info");
 		mainFrame.setPreferredSize(new Dimension(800,450));
 		try{
 			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());

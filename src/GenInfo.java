@@ -6,6 +6,7 @@ import java.awt.Font;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.GridLayout;
+import java.awt.Rectangle;
 import java.io.File;
 import java.io.FileInputStream;
 import java.net.*;
@@ -97,8 +98,8 @@ public class GenInfo {
 		text[7]=(quantumLogic = new Text()); 
 		
 		buttons = new JButton[7];
-		back = new JButton("back");
-		exit  = new JButton("exit");
+		back = new JButton("Back");
+		exit  = new JButton("Exit");
 		video1 = new JButton("Super Postion Video");
 		video2 = new JButton("Quantum Computers Intro");
 		video3 = new JButton("Processing Advantages");
@@ -135,6 +136,8 @@ public class GenInfo {
 		}
 		c.gridx=0;
 		c.gridy=0;
+		botPanel.add(back,c);
+		c.gridy++;
 		botPanel.add(intro,c);
 		c.gridy++;
 		botPanel.add(video1,c);
@@ -163,9 +166,7 @@ public class GenInfo {
 		scroll = new JScrollPane(botPanel);
 		scroll.setPreferredSize(new Dimension(800,450));
 		scroll.getVerticalScrollBar().setUnitIncrement(16);
-		scroll.getVerticalScrollBar().setValue(900000);
-
+		scroll.getVerticalScrollBar().setValue(0);
 		topPanel.add(scroll,BorderLayout.PAGE_START);
-			
 	}
 }

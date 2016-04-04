@@ -28,7 +28,7 @@ public class MainMenu {
 		panel.setBorder(BorderFactory.createLineBorder(Color.black));
 		buttons = new JButton[4];
 		
-		exit = new JButton("exit");
+		exit = new JButton("Exit");
 		info = new JButton("Introduction");
 		speed = new JButton("Speed Comparisions");
 		QtoC = new JButton("Quantum to Classical");

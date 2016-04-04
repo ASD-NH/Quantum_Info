@@ -19,6 +19,8 @@ public class Listener implements ActionListener{
 		}
 		
 		else if (e.getSource()==MainMenu.getButton(2)){
+		    SpeedCompare.generateMainPanel();
+		    Quantum.showPanel(SpeedCompare.getPanel());
 			
 		}
 		
@@ -50,7 +52,56 @@ public class Listener implements ActionListener{
 			Utils.browseWeb("https://xkcd.com");
 		}
 		//Speed Buttons
-		
+		else if (e.getSource()==SpeedCompare.getButton(0)){
+		    if (SpeedCompare.getState()==0){
+		        MainMenu.generatePanel();
+		        Quantum.showPanel(MainMenu.getPanel());
+		    }
+		    else if (SpeedCompare.getState()==1){
+		        SpeedCompare.generateMainPanel();
+		        Quantum.showPanel(SpeedCompare.getPanel());
+		    }
+		    else if (SpeedCompare.getState()==2){
+		        
+		    }
+            else if (SpeedCompare.getState()==3){
+                
+            }
+            else if (SpeedCompare.getState()==4){
+               SpeedCompare.generateFactorPanel();
+               Quantum.showPanel(SpeedCompare.getPanel());
+            }
+            else {
+                Utils.showError("Wrong state error SpeedCompare");
+            }
+		    
+		}
+        else if (e.getSource()==SpeedCompare.getButton(1)){
+            System.exit(0);
+        }
+        else if (e.getSource()==SpeedCompare.getButton(2)){
+            SpeedCompare.generateBitPanel();
+            Quantum.showPanel(SpeedCompare.getPanel());
+            
+        }
+        else if (e.getSource()==SpeedCompare.getButton(3)){
+            SpeedCompare.generateFactorPanel();
+            Quantum.showPanel(SpeedCompare.getPanel());
+        }
+        else if (e.getSource()==SpeedCompare.getButton(4)){
+            SpeedCompare.factor();
+        }
+        else if (e.getSource()==SpeedCompare.getButton(5)){
+            SpeedCompare.generateExamplePanel();
+            Quantum.showPanel(SpeedCompare.getPanel());
+        }
+        else if (e.getSource()==SpeedCompare.getButton(6)){
+        }
+        else if (e.getSource()==SpeedCompare.getButton(7)){
+            SpeedCompare.geneateFactorInfo();
+            Quantum.showPanel(SpeedCompare.getPanel());
+        }
+
 		
 		//QtoC buttons
 
