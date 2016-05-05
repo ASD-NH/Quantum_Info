@@ -1,6 +1,9 @@
+package utilities;
 import java.awt.Font;
 
 import javax.swing.JTextArea;
+
+import pages.Quantum;
 
 public class Text extends JTextArea{
     

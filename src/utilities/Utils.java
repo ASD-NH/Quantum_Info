@@ -1,7 +1,10 @@
+package utilities;
 import java.awt.Desktop;
 import java.net.URI;
 
 import javax.swing.JOptionPane;
+
+import pages.Quantum;
 
 public class Utils {
     public static void showError(String message){
